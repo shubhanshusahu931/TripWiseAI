@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripWise AI — Your Next Adventure, Planned by AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="logo-group">
+        <div class="logo-icon">✈️</div>
+        <div class="logo-text">TripWise<span>AI</span></div>
+      </a>
+
+      <button class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#preview" class="nav-link">Sample Itinerary</a></li>
+      </ul>
+
+      <div class="nav-actions" id="navbar-user-section">
+        <a href="login.html" class="btn btn-secondary btn-sm">Log In</a>
+        <a href="signup.html" class="btn btn-primary btn-sm">Sign Up Free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <main class="main-content">
+    <section style="background: radial-gradient(circle at 50% 10%, rgba(14, 165, 233, 0.12) 0%, rgba(11, 25, 44, 0.02) 80%); padding: 5rem 0 4rem; text-align: center;">
+      <div class="container" style="max-width: 860px;">
+        <span class="badge" style="background: #E0F2FE; color: var(--color-teal); margin-bottom: 1.25rem;">✨ Smart Travel Planning</span>
+        <h1 style="font-size: 3.25rem; font-weight: 800; color: var(--color-primary); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 1.25rem;">
+          Your Next Adventure, <span style="color: var(--color-teal);">Planned by AI</span>
+        </h1>
+        <p style="font-size: 1.2rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 2.25rem;">
+          Generate hyper-personalized, day-by-day travel itineraries in seconds. Complete with smart route optimization, realistic budget forecasts, local transit tips, and instant schedule regeneration.
+        </p>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="create-trip.html" class="btn btn-primary btn-lg">Start Planning Now 🚀</a>
+          <a href="#preview" class="btn btn-secondary btn-lg">View Sample Itinerary</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Curated Destination Highlights Grid -->
+    <section class="container" style="margin-top: 1rem; margin-bottom: 4.5rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+        <div style="position: relative; height: 260px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+          <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=800&q=80" alt="Tokyo, Japan" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(11, 25, 44, 0.85) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; color: white;">
+            <div style="font-weight: 800; font-size: 1.25rem;">Tokyo, Japan</div>
+            <div style="font-size: 0.85rem; color: #E0F2FE;">Culture • Gastronomy • Technology</div>
+          </div>
+        </div>
+        <div style="position: relative; height: 260px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Paris, France" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(11, 25, 44, 0.85) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; color: white;">
+            <div style="font-weight: 800; font-size: 1.25rem;">Paris, France</div>
+            <div style="font-size: 0.85rem; color: #E0F2FE;">Art • Architecture • Romance</div>
+          </div>
+        </div>
+        <div style="position: relative; height: 260px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+          <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="Rome, Italy" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(11, 25, 44, 0.85) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; color: white;">
+            <div style="font-weight: 800; font-size: 1.25rem;">Rome, Italy</div>
+            <div style="font-size: 0.85rem; color: #E0F2FE;">History • Ruins • Cuisine</div>
+          </div>
+        </div>
+        <div style="position: relative; height: 260px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali, Indonesia" style="width: 100%; height: 100%; object-fit: cover;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(11, 25, 44, 0.85) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.25rem; color: white;">
+            <div style="font-weight: 800; font-size: 1.25rem;">Bali, Indonesia</div>
+            <div style="font-size: 0.85rem; color: #E0F2FE;">Beaches • Nature • Relaxation</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" style="background: white; padding: 4.5rem 0; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div style="text-align: center; max-width: 650px; margin: 0 auto 3.5rem;">
+          <span class="badge badge-planning" style="margin-bottom: 0.75rem;">Engineered for Modern Travelers</span>
+          <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.75rem;">Everything you need for effortless travel</h2>
+          <p style="color: var(--text-muted); font-size: 1.05rem;">TripWise combines state-of-the-art AI intelligence with real-world travel logistics.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+          <div class="stat-card" style="flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+            <div class="stat-icon-wrapper stat-icon-blue">🗺️</div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary);">Geographic Route Optimization</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Activities are grouped smartly by proximity to eliminate crisscrossing and excessive commuting time.</p>
+          </div>
+          <div class="stat-card" style="flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+            <div class="stat-icon-wrapper stat-icon-green">💵</div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary);">Live Budget Recalculation</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Track expenditures per person, accommodation estimates, and dining costs with dynamic recalculation.</p>
+          </div>
+          <div class="stat-card" style="flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+            <div class="stat-icon-wrapper stat-icon-amber">⚡</div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary);">Instant Day Regeneration</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Don't like a specific day? Regenerate it with custom instructions while preserving the rest of your itinerary.</p>
+          </div>
+          <div class="stat-card" style="flex-direction: column; align-items: flex-start; gap: 0.75rem;">
+            <div class="stat-icon-wrapper stat-icon-purple">🔒</div>
+            <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary);">Supabase Security & RLS</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">Your travel plans and personal profiles are strictly protected with Row Level Security in Supabase PostgreSQL.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="container" style="padding: 4.5rem 1.5rem;">
+      <div style="text-align: center; max-width: 600px; margin: 0 auto 3.5rem;">
+        <span class="badge" style="background: #ECFDF5; color: var(--color-emerald); margin-bottom: 0.75rem;">Simple 3-Step Process</span>
+        <h2 style="font-size: 2.25rem; font-weight: 800; color: var(--color-primary); margin-bottom: 0.75rem;">How TripWise Works</h2>
+        <p style="color: var(--text-muted); font-size: 1.05rem;">From initial idea to departure-ready schedule in under 60 seconds.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; position: relative;">
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; text-align: center;">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--color-teal); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.25rem; margin: 0 auto 1.25rem;">1</div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem;">Share Your Preferences</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Select your destination, dates, budget, preferred pace, interests, and dietary requirements.</p>
+        </div>
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; text-align: center;">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--color-primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.25rem; margin: 0 auto 1.25rem;">2</div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem;">AI Plans & Optimizes</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Our backend AI organizes daily schedules, transit directions, durations, and estimated costs.</p>
+        </div>
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2rem; text-align: center;">
+          <div style="width: 52px; height: 52px; border-radius: 50%; background: var(--color-emerald); color: white; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.25rem; margin: 0 auto 1.25rem;">3</div>
+          <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem;">Customize & Travel</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Add custom activities, swap days, export or print to PDF, and embark on your journey.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sample Itinerary Preview Section -->
+    <section id="preview" style="background: #F1F5F9; padding: 4.5rem 0;">
+      <div class="container" style="max-width: 960px;">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
+          <span class="badge badge-planning" style="margin-bottom: 0.5rem;">Interactive Preview</span>
+          <h2 style="font-size: 2rem; font-weight: 800; color: var(--color-primary);">Sample Tokyo 3-Day Highlights</h2>
+          <p style="color: var(--text-muted);">Experience what an AI-generated itinerary looks like</p>
+        </div>
+
+        <div style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-md);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 style="font-size: 1.35rem; font-weight: 700; color: var(--color-primary);">Day 1: Asakusa & Modern Shibuya Scramble</h3>
+              <div style="font-size: 0.9rem; color: var(--color-teal); font-weight: 600;">Estimated Cost: $67.00 • Pace: Balanced</div>
+            </div>
+            <a href="create-trip.html" class="btn btn-primary btn-sm">Plan Your Own Trip</a>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <h4 style="font-weight: 700; color: var(--color-primary);">🌅 Sensō-ji Temple & Nakamise Dori</h4>
+                <span class="badge" style="background: #EFF6FF; color: #2563EB;">09:00 - 11:30</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">Explore Tokyo's oldest Buddhist temple, shop for traditional souvenirs, and taste freshly made red bean snacks.</p>
+              <div style="font-size: 0.85rem; color: var(--color-slate-700);">🚇 <strong>Transit:</strong> Ginza Subway Line to Asakusa Station, Exit 1.</div>
+            </div>
+
+            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <h4 style="font-weight: 700; color: var(--color-primary);">☀️ Tokyo Skytree Observation Deck</h4>
+                <span class="badge" style="background: #EFF6FF; color: #2563EB;">12:30 - 14:30</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">Witness 360-degree panoramic skyline views extending to Mount Fuji on clear afternoons.</p>
+              <div style="font-size: 0.85rem; color: var(--color-slate-700);">🚇 <strong>Transit:</strong> Tobu Skytree Line direct from Asakusa.</div>
+            </div>
+
+            <div style="background: var(--bg-main); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.25rem;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+                <h4 style="font-weight: 700; color: var(--color-primary);">🌆 Shibuya Crossing & Golden Gai Izakaya</h4>
+                <span class="badge" style="background: #EFF6FF; color: #2563EB;">17:30 - 21:00</span>
+              </div>
+              <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem;">Cross the iconic pedestrian scramble, take photos with Hachiko, and conclude with authentic yakitori skewers.</p>
+              <div style="font-size: 0.85rem; color: var(--color-slate-700);">🚇 <strong>Transit:</strong> Hanzomon Line to Shibuya Station Hachiko Exit.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo-group" style="color: white;">
+            <div class="logo-icon">✈️</div>
+            <div class="logo-text">TripWise<span>AI</span></div>
+          </div>
+          <p>AI-Powered personalized travel itinerary planner engineered with plain HTML5, CSS3, vanilla JavaScript, Python FastAPI, and Supabase.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="create-trip.html">Create Trip</a></li>
+            <li><a href="my-trips.html">My Trips</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Platform & Tech</h4>
+          <ul class="footer-links">
+            <li><a href="https://supabase.com" target="_blank" rel="noopener">Supabase Auth & DB</a></li>
+            <li><a href="https://fastapi.tiangolo.com" target="_blank" rel="noopener">FastAPI Backend</a></li>
+            <li><a href="https://ai.google.dev" target="_blank" rel="noopener">Google Gemini API</a></li>
+            <li><a href="profile.html">Connection Settings</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 TripWise AI — Personalized Travel Itinerary Planner. All rights reserved.</div>
+        <div>Built with Vanilla JS, FastAPI, and Supabase</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

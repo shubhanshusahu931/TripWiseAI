@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile & Settings — TripWise AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="logo-group">
+        <div class="logo-icon">✈️</div>
+        <div class="logo-text">TripWise<span>AI</span></div>
+      </a>
+
+      <button class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="create-trip.html" class="nav-link">Plan New Trip</a></li>
+        <li><a href="my-trips.html" class="nav-link">My Trips</a></li>
+        <li><a href="profile.html" class="nav-link active">Profile</a></li>
+      </ul>
+
+      <div class="nav-actions" id="navbar-user-section"></div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content" style="padding-top: 2.5rem;">
+    <div class="container" style="max-width: 760px;">
+
+      <div style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2.5rem; box-shadow: var(--shadow-sm); margin-bottom: 2rem;">
+        
+        <!-- Avatar Header -->
+        <div style="display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.75rem;">
+          <div class="avatar-circle" id="profile-avatar-large" style="width: 72px; height: 72px; font-size: 1.85rem; font-weight: 800; background: linear-gradient(135deg, var(--color-teal), var(--color-primary));">
+            T
+          </div>
+          <div>
+            <h1 style="font-size: 1.6rem; font-weight: 800; color: var(--color-primary);">Profile & Travel Preferences</h1>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Configure your default travel profile used by our AI planner</p>
+          </div>
+        </div>
+
+        <!-- Profile Form -->
+        <form id="profile-form">
+          <div class="form-group">
+            <label class="form-label" for="profile-email">Account Email</label>
+            <input type="email" id="profile-email" class="form-input" disabled style="background: var(--bg-surface-muted); color: var(--text-muted);">
+            <div class="form-helper">Email is managed by Supabase Authentication</div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="profile-display-name">Display Name</label>
+            <input type="text" id="profile-display-name" class="form-input" placeholder="e.g. Alex Traveler" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="profile-currency">Preferred Currency</label>
+              <select id="profile-currency" class="form-select">
+                <option value="USD">USD ($)</option>
+                <option value="EUR">EUR (€)</option>
+                <option value="GBP">GBP (£)</option>
+                <option value="JPY">JPY (¥)</option>
+                <option value="INR">INR (₹)</option>
+                <option value="CAD">CAD ($)</option>
+                <option value="AUD">AUD ($)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="profile-travel-style">Default Travel Style</label>
+              <select id="profile-travel-style" class="form-select">
+                <option value="budget">Budget-Friendly</option>
+                <option value="standard">Standard / Balanced</option>
+                <option value="luxury">Luxury & Premium</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="profile-home-city">Home Departure City</label>
+            <input type="text" id="profile-home-city" class="form-input" placeholder="e.g. San Francisco, CA">
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+            <button type="button" class="btn btn-secondary" id="profile-logout-btn" style="color: var(--color-rose);">
+              🚪 Log Out
+            </button>
+            <button type="submit" class="btn btn-primary">
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Advanced Connection Settings Box -->
+      <div style="background: white; border: 1px solid var(--border-color); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-sm);">
+        <h3 style="font-size: 1.2rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem;">⚙️ Connection & API Settings</h3>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Configure custom backend API or Supabase credentials for testing and deployment.
+        </p>
+
+        <form id="config-form">
+          <div class="form-group">
+            <label class="form-label" for="config-api-url">Backend API Base URL</label>
+            <input type="text" id="config-api-url" class="form-input" placeholder="http://localhost:8000">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="config-supabase-url">Supabase Project URL (Optional)</label>
+            <input type="text" id="config-supabase-url" class="form-input" placeholder="https://your-project.supabase.co">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="config-supabase-key">Supabase Anon Public Key (Optional)</label>
+            <input type="text" id="config-supabase-key" class="form-input" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...">
+          </div>
+
+          <button type="submit" class="btn btn-secondary btn-sm">
+            Save Connection Settings
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>

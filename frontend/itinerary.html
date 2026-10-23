@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Itinerary — TripWise AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/itinerary.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="logo-group">
+        <div class="logo-icon">✈️</div>
+        <div class="logo-text">TripWise<span>AI</span></div>
+      </a>
+
+      <button class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="create-trip.html" class="nav-link">Plan New Trip</a></li>
+        <li><a href="my-trips.html" class="nav-link">My Trips</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+      </ul>
+
+      <div class="nav-actions" id="navbar-user-section"></div>
+    </div>
+  </nav>
+
+  <!-- Main Itinerary View -->
+  <main class="main-content" style="padding-top: 1.5rem;">
+    <div class="container">
+
+      <!-- Itinerary Hero -->
+      <section class="itinerary-hero" id="itinerary-hero">
+        <div class="itinerary-hero-overlay">
+          <div class="itinerary-header-meta">
+            <span class="badge" style="background: rgba(255,255,255,0.2); color: white;" id="itinerary-dest-label">📍 Destination</span>
+            <span class="badge" style="background: rgba(255,255,255,0.2); color: white;" id="itinerary-dates-label">📅 Dates</span>
+            <span class="badge" style="background: rgba(255,255,255,0.2); color: white;" id="itinerary-travelers-label">👥 1 Traveler</span>
+            <span class="badge" style="background: rgba(255,255,255,0.2); color: white;" id="itinerary-style-label">✨ Standard</span>
+            <span class="badge badge-sample" id="sample-data-badge" style="display: none;">Sample Data Engine</span>
+          </div>
+
+          <h1 class="itinerary-title" id="itinerary-title">Trip Itinerary</h1>
+          <p class="itinerary-subtitle" id="itinerary-summary-text">
+            Crafting your personalized travel itinerary...
+          </p>
+
+          <div class="itinerary-actions-bar">
+            <button type="button" class="btn btn-primary btn-sm" id="add-activity-btn">
+              + Add Custom Activity
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="regen-day-btn">
+              ⚡ Regenerate Day
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="regen-full-btn">
+              🔄 Regenerate All
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="print-itinerary-btn">
+              🖨️ Print / PDF
+            </button>
+            <button type="button" class="btn btn-secondary btn-sm" id="copy-summary-btn">
+              📋 Copy Summary
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Main Layout: Daily Schedule vs Budget Breakdown Sidebar -->
+      <div class="itinerary-layout">
+
+        <!-- Left: Days & Activities -->
+        <div>
+          <!-- Day Tabs Selector -->
+          <div class="day-selector-bar" id="day-tabs-container">
+            <!-- Injected dynamically via itinerary.js -->
+          </div>
+
+          <!-- Active Day Overview -->
+          <div class="day-overview-header">
+            <h2 class="day-overview-title" id="active-day-heading">Day 1 Schedule</h2>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">
+              All activities are sorted chronologically
+            </div>
+          </div>
+
+          <!-- Activities Grouped by Time Slot -->
+          <div id="day-schedule-container">
+            <!-- Injected dynamically via itinerary.js -->
+          </div>
+        </div>
+
+        <!-- Right: Budget Breakdown Sidebar -->
+        <aside>
+          <div class="budget-summary-card" id="budget-breakdown-sidebar">
+            <!-- Injected dynamically via itinerary.js -->
+          </div>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal: Regenerate Day -->
+  <div class="modal-backdrop" id="regen-day-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Regenerate Day <span id="regen-day-target-num">1</span></h3>
+        <button type="button" class="modal-close-btn">&times;</button>
+      </div>
+      <form id="regen-day-form">
+        <div class="modal-body">
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Provide any custom instructions or special requests to replace this day's activities.
+          </p>
+          <div class="form-group">
+            <label class="form-label" for="regen-day-notes">Refinement Notes (Optional)</label>
+            <textarea id="regen-day-notes" class="form-textarea" rows="3" placeholder="e.g. Focus on historic temples and traditional tea houses; avoid crowded shopping malls."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Regenerate Day</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Add or Edit Activity -->
+  <div class="modal-backdrop" id="activity-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title" id="activity-modal-title">Add Custom Activity</h3>
+        <button type="button" class="modal-close-btn">&times;</button>
+      </div>
+      <form id="activity-modal-form">
+        <input type="hidden" id="act-edit-id">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label" for="act-title">Activity Title *</label>
+            <input type="text" id="act-title" class="form-input" placeholder="e.g. Sunset Dinner at Harbor Pier" required>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="act-slot">Time Slot</label>
+              <select id="act-slot" class="form-select">
+                <option value="Morning">Morning</option>
+                <option value="Afternoon">Afternoon</option>
+                <option value="Evening" selected>Evening</option>
+                <option value="Night">Night</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="act-duration">Duration (minutes)</label>
+              <input type="number" id="act-duration" class="form-input" min="10" max="720" value="90">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="act-start-time">Start Time</label>
+              <input type="text" id="act-start-time" class="form-input" placeholder="18:00" value="18:00">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="act-end-time">End Time</label>
+              <input type="text" id="act-end-time" class="form-input" placeholder="20:00" value="20:00">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="act-location">Location / Neighborhood</label>
+              <input type="text" id="act-location" class="form-input" placeholder="e.g. Waterfront Promenade">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="act-cost">Estimated Cost</label>
+              <input type="number" id="act-cost" class="form-input" min="0" step="1" value="0">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="act-description">Description</label>
+            <textarea id="act-description" class="form-textarea" rows="2" placeholder="What to see, taste, or experience..."></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="act-transit">Transit Suggestion</label>
+            <input type="text" id="act-transit" class="form-input" placeholder="e.g. 5 min walk from central metro station">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="act-tips">Practical Tips</label>
+            <input type="text" id="act-tips" class="form-input" placeholder="e.g. Book in advance; dress code applies">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm modal-cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Activity</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/itinerary.js"></script>
+</body>
+</html>

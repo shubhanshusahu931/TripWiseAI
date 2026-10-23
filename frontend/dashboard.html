@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — TripWise AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="logo-group">
+        <div class="logo-icon">✈️</div>
+        <div class="logo-text">TripWise<span>AI</span></div>
+      </a>
+
+      <button class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+        <li><a href="create-trip.html" class="nav-link">Plan New Trip</a></li>
+        <li><a href="my-trips.html" class="nav-link">My Trips</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+      </ul>
+
+      <div class="nav-actions" id="navbar-user-section">
+        <!-- Injected via auth.js -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- Dashboard Header Banner -->
+  <header class="dashboard-header">
+    <div class="container">
+      <div class="dashboard-welcome-row">
+        <div>
+          <h1 class="dashboard-title">Welcome back, <span id="user-greeting-name">Traveler</span>! 👋</h1>
+          <p class="dashboard-subtitle">Here is a summary of your ongoing travel plans and AI itineraries</p>
+        </div>
+        <div>
+          <a href="create-trip.html" class="btn btn-primary btn-lg" style="box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);">
+            ✨ Create New Trip
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Dashboard Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- KPI Statistics Grid -->
+      <section class="stats-grid" id="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-blue">✈️</div>
+          <div>
+            <div class="stat-value" id="stat-total-trips">-</div>
+            <div class="stat-label">Total Planned Trips</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-green">📅</div>
+          <div>
+            <div class="stat-value" id="stat-upcoming-trips">-</div>
+            <div class="stat-label">Upcoming Adventures</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-amber">💰</div>
+          <div>
+            <div class="stat-value" id="stat-total-budget">-</div>
+            <div class="stat-label">Total Budget Planned</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon-wrapper stat-icon-purple">🌍</div>
+          <div>
+            <div class="stat-value" id="stat-destinations">-</div>
+            <div class="stat-label">Destinations Explored</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Trips Section -->
+      <section style="margin-top: 2rem;">
+        <div class="section-header-row">
+          <h2 class="section-title">Recent Trips</h2>
+          <a href="my-trips.html" class="btn btn-secondary btn-sm">View All Trips →</a>
+        </div>
+
+        <!-- Trips Grid -->
+        <div class="trips-grid" id="recent-trips-container">
+          <!-- Populated dynamically via dashboard.js -->
+        </div>
+
+        <!-- Empty State (Shown when 0 trips exist) -->
+        <div class="empty-state-box" id="dashboard-empty-state" style="display: none;">
+          <div class="empty-state-icon">🗺️</div>
+          <h3 class="empty-state-title">No trips planned yet</h3>
+          <p class="empty-state-desc">
+            You haven't created any travel itineraries yet. Ready to embark on your next adventure? Tell TripWise where you'd like to go and let AI create the perfect day-by-day plan.
+          </p>
+          <a href="create-trip.html" class="btn btn-primary">
+            Plan Your First Trip
+          </a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2026 TripWise AI — Personalized Travel Itinerary Planner</div>
+        <div><a href="my-trips.html" style="color: #94A3B8;">My Trips</a> • <a href="profile.html" style="color: #94A3B8;">Settings</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

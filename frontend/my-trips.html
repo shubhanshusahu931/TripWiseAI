@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Trips — TripWise AI</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✈️</text></svg>">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="dashboard.html" class="logo-group">
+        <div class="logo-icon">✈️</div>
+        <div class="logo-text">TripWise<span>AI</span></div>
+      </a>
+
+      <button class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="create-trip.html" class="nav-link">Plan New Trip</a></li>
+        <li><a href="my-trips.html" class="nav-link active">My Trips</a></li>
+        <li><a href="profile.html" class="nav-link">Profile</a></li>
+      </ul>
+
+      <div class="nav-actions" id="navbar-user-section"></div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content" style="padding-top: 2.5rem;">
+    <div class="container">
+
+      <!-- Header Row -->
+      <div class="section-header-row" style="margin-bottom: 2rem;">
+        <div>
+          <h1 style="font-size: 2rem; font-weight: 800; color: var(--color-primary); letter-spacing: -0.02em;">My Saved Trips</h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 0.25rem;">Manage, duplicate, or inspect your custom itineraries</p>
+        </div>
+        <div>
+          <a href="create-trip.html" class="btn btn-primary">
+            + Plan New Trip
+          </a>
+        </div>
+      </div>
+
+      <!-- Filters & Search Toolbar -->
+      <div class="filter-toolbar">
+        <div class="search-input-wrap">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="trip-search-input" class="form-input" placeholder="Search by destination or title...">
+        </div>
+
+        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <select id="trip-status-filter" class="form-select" style="min-width: 150px;">
+            <option value="all">All Statuses</option>
+            <option value="planning">Planning</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+
+          <select id="trip-sort-filter" class="form-select" style="min-width: 160px;">
+            <option value="newest">Sort: Newest First</option>
+            <option value="date_soonest">Sort: Soonest Travel</option>
+            <option value="budget_high">Sort: Budget (High-Low)</option>
+            <option value="budget_low">Sort: Budget (Low-High)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Trips Grid -->
+      <div class="trips-grid" id="my-trips-grid">
+        <!-- Injected dynamically via my-trips.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state-box" id="my-trips-empty" style="display: none;">
+        <div class="empty-state-icon">🔍</div>
+        <h3 class="empty-state-title">No matching trips found</h3>
+        <p class="empty-state-desc">Try clearing your search query or status filter, or create a new trip to get started.</p>
+        <a href="create-trip.html" class="btn btn-primary">Create New Trip</a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Modal: Delete Confirmation -->
+  <div class="modal-backdrop" id="delete-trip-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Delete Trip</h3>
+        <button type="button" class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.75rem;">
+          Are you sure you want to permanently delete <strong id="delete-trip-name">this trip</strong>?
+        </p>
+        <p style="font-size: 0.85rem; color: var(--color-rose);">
+          This action will permanently delete all generated daily plans and custom activities for this trip.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm modal-cancel-btn">Cancel</button>
+        <button type="button" class="btn btn-danger btn-sm" id="confirm-delete-trip-btn">Delete Permanently</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/my-trips.js"></script>
+</body>
+</html>

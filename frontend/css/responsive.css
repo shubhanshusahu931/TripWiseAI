@@ -1,0 +1,132 @@
+/* ==============================================================================
+   TripWise AI — Responsive Styles
+   ============================================================================== */
+
+/* Mobile Hamburger Toggle */
+.menu-toggle-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* Tablet (1024px and down) */
+@media (max-width: 1024px) {
+  .itinerary-layout {
+    grid-template-columns: 1fr;
+  }
+  .budget-summary-card {
+    position: static;
+    margin-bottom: 2rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+/* Mobile Devices (768px and down) */
+@media (max-width: 768px) {
+  .menu-toggle-btn {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: var(--bg-surface);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow-lg);
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .dashboard-welcome-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dashboard-title {
+    font-size: 1.6rem;
+  }
+
+  .itinerary-title {
+    font-size: 1.75rem;
+  }
+
+  .itinerary-hero-overlay {
+    padding: 2rem 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .toast {
+    min-width: unset;
+    width: 100%;
+  }
+
+  .modal-card {
+    margin: 1rem;
+    max-height: 85vh;
+  }
+
+  /* Wizard responsive */
+  .wizard-progress-bar {
+    overflow-x: auto;
+  }
+}
+
+/* Small Phones (480px and down) */
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trips-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .itinerary-actions-bar {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .itinerary-actions-bar .btn {
+    width: 100%;
+  }
+
+  .auth-card {
+    padding: 2rem 1.25rem;
+  }
+}
