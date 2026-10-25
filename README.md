@@ -291,7 +291,7 @@ python -m pytest backend/tests -v
 3. Fill in your public `SUPABASE_URL` and `SUPABASE_ANON_KEY`.
 
 ---
-
+## Deploy link : `https://tripwiseai-frontend.vercel.app/index.html` 
 ## ⚠️ Known Limitations & Design Decisions
 
 - **Framework-free**: The frontend uses native DOM manipulation and custom modal components instead of heavy third-party UI libraries or frameworks, ensuring lightning-fast load times and zero build dependencies.
